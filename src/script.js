@@ -19,16 +19,41 @@ let day = days[now.getDay()];
 return `${day}, ${hours}:${minutes}`
 }
 
+
+
+
+
+
+function displayWeatherCondition(response){
+
+document.querySelector("#city").innerHTML = response.data.name;
+document.querySelector("#temp").innerHTML = Math.round(response.data.main.temp);
+document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+document.querySelector("#description").innerHTML = response.data.weather[0].description;
+}
+
+
+function searchCity(city){
+let apiKey = "dd50664a96525c62168f272505305124";
+let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+function handleSubmit(event){
+    event.preventDefault();
+    let city = document.querySelector("#search-text-input").value;
+    searchCity(city);
+
+}
+
 let nowElement = document.querySelector("h1"); 
 let currentTime=new Date();
 nowElement.innerHTML=formatDate(currentTime);
 
-function search(event){
-    event.preventDefault();
-    let searchInput= document.querySelector("#search-text-input");
-    let h2 =document.querySelector("h2");
-    h2.innerHTML = `Search for ${searchInput.value}..`;
-}
+
 
 let form= document.querySelector("#search-form");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
+
+console.log(description);
