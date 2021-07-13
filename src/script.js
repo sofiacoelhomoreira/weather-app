@@ -20,9 +20,26 @@ return `${day}, ${hours}:${minutes}`
 }
 
 
+let nowElement = document.querySelector("h1"); 
+let currentTime=new Date();
+nowElement.innerHTML=formatDate(currentTime);
+
+function handleSubmit(event){
+    event.preventDefault();
+    let city = document.querySelector("#search-text-input").value;
+    searchCity(city);
+}
 
 
+let form= document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
+
+function searchCity(city){
+let apiKey = "dd50664a96525c62168f272505305124";
+let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayWeatherCondition);
+}
 
 function displayWeatherCondition(response){
 
@@ -33,27 +50,20 @@ document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed)
 document.querySelector("#description").innerHTML = response.data.weather[0].description;
 }
 
-
-function searchCity(city){
+function searchLocation(position){
 let apiKey = "dd50664a96525c62168f272505305124";
-let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+let apiUrl =`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-function handleSubmit(event){
-    event.preventDefault();
-    let city = document.querySelector("#search-text-input").value;
-    searchCity(city);
 
+function getCurrentLocation(event){
+    event.preventDefault();
+navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let nowElement = document.querySelector("h1"); 
-let currentTime=new Date();
-nowElement.innerHTML=formatDate(currentTime);
 
 
-
-let form= document.querySelector("#search-form");
-form.addEventListener("submit", handleSubmit);
-
-console.log(description);
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+searchCity("Itapecerica da Serra");
