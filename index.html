@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>weather-app</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/7f50b704ce.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/styles.css">
 
@@ -15,30 +16,57 @@
 <body>
     <div class="container">
 
-        <div class="row">
 
-            <div class="col-3">
-                <h2> </h2>
-            </div>
 
-            <div class="col-9">
-                <form id="search-form">
-
-                    <input type="text" placeholder="Search for..." autocomplete="off" autofocus="on"
-                        id="search-text-input" />
-                    <input type="submit" value="Search" id="search-press" class="click-search" />
-
-                </form>
-            </div>
+        <div class="current-time-here">
+            <h1> </h1>
         </div>
-        <h1>
-            Itapecerica da Serra
-        </h1>
+        <span><i class="fas fa-moon"></i> Crescent Moon </span>
 
         <div>
-            <div class="weather-figure">
+            <form id="search-form">
+
+                <input type="text" placeholder="Search for..." autocomplete="off" autofocus="on"
+                    id="search-text-input" />
+                <input type="submit" value="Search" id="search-press" class="click-search" />
+
+            </form>
+        </div>
+
+        <h2>
+
+        </h2>
+
+        <div class="row">
+            <div class="col-2">
                 <i class="fas fa-sun"></i>
             </div>
+            <div class="col-2">
+                <span class="temperature" id="temp">
+                    19
+                </span>
+                <span class="unit">
+                    °C
+                </span>
+
+            </div>
+            <div class="col-4">
+                <ul id="weather-list">
+
+                    <li>
+                        Description
+                    </li>
+                    <li>
+                        Humidity: 38%
+                    </li>
+                    <li>
+                        Wind: 11km/h
+                    </li>
+
+
+                </ul>
+            </div>
+
         </div>
 
     </div>

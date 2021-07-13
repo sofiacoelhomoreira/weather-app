@@ -10,3 +10,21 @@ h1 {
 h2 {
   font-size: 20px;
 }
+
+li {
+  list-style: none;
+  font-size: 15px;
+}
+
+.temperature {
+  font-size: 55px;
+}
+
+.unit {
+  position: relative;
+  top: -25px;
+}
+
+.weather-icon {
+  font-size: 70px;
+}
