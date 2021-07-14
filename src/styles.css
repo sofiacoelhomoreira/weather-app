@@ -1,5 +1,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+  color: #522d5b;
+  padding: 30px;
 }
 
 h1 {
@@ -14,8 +17,30 @@ h1 {
 .form-area {
   padding: 15px;
 }
+
+.type-city {
+  border-radius: 5px;
+  border-right-color: #fee140;
+  border-top: #fee140;
+  border-left-color: #fa709a;
+  border-bottom-color: #fa709a;
+}
+
+.click-search {
+  color: orange;
+  background-color: #522d5b;
+  border-radius: 12px;
+  border: 2px;
+  border-color: #fa709a;
+}
+
 h2 {
+  color: #522d5b;
   font-size: 30px;
+}
+
+ul {
+  color: #522d5b;
 }
 
 li {
@@ -32,6 +57,15 @@ li {
   top: -25px;
 }
 
-.weather-icon {
-  size: 50px;
+.weather-icon i {
+  font-size: 60px;
+  position: relative;
+  top: 12px;
+}
+
+.btn {
+  background-color: #f7aa1b;
+  border-radius: 40px;
+  border: solid 2px #fa709a;
+  font-size: 19px;
 }
