@@ -17,67 +17,75 @@
 </head>
 
 <body>
-    <div class="container">
+
+    <div class="border">
+        <div class="container">
 
 
 
-        <div class="current-time-here">
-            <h1> </h1>
-            <span><i class="fas fa-moon"></i> New Moon </span>
+            <div class="current-time-here">
+                <h1> </h1>
+                <span><i class="fas fa-moon"></i> New Moon </span>
 
-        </div>
-
-
-        <div class="form-area">
-            <form id="search-form">
-
-                <input type="search" id="search-text-input" class="type-city" />
-                <input type="submit" value="Search" id="search-press" class="click-search" />
-                <button class="btn" id="current-location-button">
-                    Current </button>
-            </form>
-
-            <h2 id="city">
-
-            </h2>
+            </div>
 
 
-            <div class="row">
-                <div class="col-2">
-                    <div class="weather-icon">
-                        <i class="fas fa-sun"></i>
+            <div class="form-area">
+                <form id="search-form">
+
+                    <input type="search" id="search-text-input" class="type-city" />
+                    <input type="submit" value="Search" id="search-press" class="click-search" />
+                    <button class="btn" id="current-location-button">
+                        Current </button>
+                </form>
+
+                <h2 id="city">
+
+                </h2>
+
+
+                <div class="row">
+                    <div class="col-3">
+                        <div class="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
                     </div>
+                    <div class="col-3">
+                        <span class="temperature" id="temp">
+
+                        </span>
+                        <span class="unit">
+                            °C
+                        </span>
+
+                    </div>
+                    <div class="col-6">
+                        <ul id="weather-list">
+
+                            <li>
+                                <span id="description"></span>
+                            </li>
+                            <li>
+                                humidity: <span id="humidity"></span>%
+                            </li>
+                            <li>
+                                wind: <span id="wind"></span>km/h
+                            </li>
+
+
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="col-2">
-                    <span class="temperature" id="temp">
-
-                    </span>
-                    <span class="unit">
-                        °C
-                    </span>
-
-                </div>
-                <div class="col-4">
-                    <ul id="weather-list">
-
-                        <li>
-                            <span id="description"></span>
-                        </li>
-                        <li>
-                            humidity: <span id="humidity"></span>%
-                        </li>
-                        <li>
-                            wind: <span id="wind"></span>km/h
-                        </li>
-
-
-                    </ul>
-                </div>
-
             </div>
         </div>
     </div>
-
+    <footer>
+        <a href="https://github.com/sofiacoelhomoreira/weather-app">
+            Open-source
+        </a>
+        code by Sofia Coelho
+    </footer>
     <script src="src/script.js"></script>
 </body>
 

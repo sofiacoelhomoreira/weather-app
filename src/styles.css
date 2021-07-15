@@ -5,6 +5,12 @@ body {
   padding: 30px;
 }
 
+.border {
+  border: solid 1px #faf1bd;
+  border-radius: 12px;
+  max-width: 570px;
+}
+
 h1 {
   color: #522d5b;
   font-size: 24px;
@@ -55,6 +61,7 @@ li {
 .unit {
   position: relative;
   top: -25px;
+  font-size: 20x;
 }
 
 .weather-icon i {
@@ -65,7 +72,13 @@ li {
 
 .btn {
   background-color: #f7aa1b;
-  border-radius: 40px;
-  border: solid 2px #fa709a;
-  font-size: 19px;
+  border-radius: 15px;
+  border: solid 2px #f18baa;
+  font-size: 20px;
+  padding: 4px;
+  margin-top: -3px;
+}
+
+footer {
+  font-size: 15px;
 }
