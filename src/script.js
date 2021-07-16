@@ -48,7 +48,10 @@ document.querySelector("#temp").innerHTML = Math.round(response.data.main.temp);
 document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
 document.querySelector("#description").innerHTML = response.data.weather[0].description;
+let iconElement = document.querySelector("#weather-icon");
+iconElement.setAttribute("src",  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
+
 
 function searchLocation(position){
 let apiKey = "dd50664a96525c62168f272505305124";
@@ -66,4 +69,4 @@ navigator.geolocation.getCurrentPosition(searchLocation);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-searchCity("Itapecerica da Serra");
+searchCity("São Paulo");
