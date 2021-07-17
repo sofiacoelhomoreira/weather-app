@@ -44,7 +44,10 @@ axios.get(apiUrl).then(displayWeatherCondition);
 function displayWeatherCondition(response){
 
 document.querySelector("#city").innerHTML = response.data.name;
-document.querySelector("#temp").innerHTML = Math.round(response.data.main.temp);
+
+celsiusTemperature = response.data.main.temp;
+
+document.querySelector("#temp").innerHTML = Math.round(celsiusTemperature);
 document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
 document.querySelector("#description").innerHTML = response.data.weather[0].description;
@@ -65,8 +68,30 @@ function getCurrentLocation(event){
 navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function displayFahrenheitTemperature(event){
+    event.preventDefault;
+    let temperatureElement = document.querySelector("#temp");
+    let fahrenheitTemperature = ((celsiusTemperature*9)/5) +32;
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 
+}
+
+function displayCelsiusTemperature(event){
+    event.preventDefault;
+    let temperatureElement = document.querySelector("#temp");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    console.log(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 searchCity("São Paulo");
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature)
+
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature)

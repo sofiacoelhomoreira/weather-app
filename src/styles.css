@@ -42,7 +42,8 @@ h1 {
 
 h2 {
   color: #522d5b;
-  font-size: 30px;
+  font-size: 28px;
+  padding-top: 20px;
 }
 
 ul {
@@ -51,23 +52,27 @@ ul {
 
 li {
   list-style: none;
-  font-size: 18px;
+  font-size: 15px;
+  position: relative;
+  top: 5px;
 }
 
 .temperature {
-  font-size: 55px;
+  font-size: 52px;
 }
 
 .unit {
   position: relative;
-  top: -25px;
-  font-size: 20x;
+  top: -30px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.weather-icon i {
-  font-size: 60px;
+.weather-icon {
   position: relative;
-  top: 12px;
+  top: -10px;
+  color: #522d5b;
 }
 
 .btn {
@@ -81,4 +86,8 @@ li {
 
 footer {
   font-size: 15px;
+}
+
+a {
+  text-decoration: none;
 }
