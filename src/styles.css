@@ -9,6 +9,7 @@ body {
   border: solid 1px #faf1bd;
   border-radius: 12px;
   max-width: 570px;
+  margin: 12px;
 }
 
 h1 {
@@ -86,8 +87,22 @@ li {
 
 footer {
   font-size: 15px;
+  margin-left: 15px;
 }
 
 a {
   text-decoration: none;
+}
+
+.weather-forecast {
+  text-align: center;
+  color: #774285;
+}
+
+.weather-forecast-date {
+  font-size: 18px;
+}
+
+.weather-forecast-temp {
+  font-size: 13px;
 }
