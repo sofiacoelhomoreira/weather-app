@@ -41,6 +41,15 @@ let apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${a
 axios.get(apiUrl).then(displayWeatherCondition);
 }
 
+
+function getForecast(coordinates){
+    console.log(coordinates);
+    let apiKey = "dd50664a96525c62168f272505305124";
+    let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+}
+
+
 function displayWeatherCondition(response){
 
 document.querySelector("#city").innerHTML = response.data.name;
@@ -53,6 +62,9 @@ document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed)
 document.querySelector("#description").innerHTML = response.data.weather[0].description;
 let iconElement = document.querySelector("#weather-icon");
 iconElement.setAttribute("src",  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+getForecast(response.data.coord);
+
 }
 
 
@@ -83,7 +95,45 @@ function displayCelsiusTemperature(event){
     console.log(celsiusTemperature);
 }
 
+
+function displayForecast(response){
+
+    console.log(response.data.daily);
+    let forecastElement = document.querySelector("#forecast");
+  
+    let days = ["Tue", "Wed", "Thu", "Fri"];
+
+    let forecastHTML='<div class="row">';
+    
+    days.forEach(function (day) {
+    forecastHTML = forecastHTML + ` 
+    <div class="col-3">
+                        <div class="weather-forecast-date">
+                            ${day}
+                        </div>
+                        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="" width="30" />
+                        <div class="weather-forecast-temp">
+                            <span class="weather-forecast-min-temp">
+                                11
+                            </span> -
+                            <span class="weather-forecast-max-temp">
+                                19
+                            </span>
+                            °C
+                        </div>
+     </div>               
+`;
+    });
+    
+
+forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML= forecastHTML;
+
+}
+
+
 let celsiusTemperature = null;
+
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
@@ -95,3 +145,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature)
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+
