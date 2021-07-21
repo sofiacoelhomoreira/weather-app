@@ -90,22 +90,6 @@ function getCurrentLocation(event){
 navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function displayFahrenheitTemperature(event){
-    event.preventDefault;
-    let temperatureElement = document.querySelector("#temp");
-    let fahrenheitTemperature = ((celsiusTemperature*9)/5) +32;
-    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-
-}
-
-function displayCelsiusTemperature(event){
-    event.preventDefault;
-    let temperatureElement = document.querySelector("#temp");
-    temperatureElement.innerHTML = Math.round(celsiusTemperature);
-    console.log(celsiusTemperature);
-}
-
-
 function displayForecast(response){
 
     let forecast = response.data.daily;
@@ -143,19 +127,7 @@ forecastHTML = forecastHTML + `</div>`;
 
 }
 
-
-let celsiusTemperature = null;
-
-
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 searchCity("São Paulo");
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature)
-
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
 
