@@ -62,7 +62,11 @@ function getForecast(coordinates){
 
 function displayWeatherCondition(response){
 
-document.querySelector("#city").innerHTML = response.data.name;
+    let country = response.data.sys.country;
+    let city = response.data.name;
+    let cityDisplay = document.querySelector("#city");
+
+cityDisplay.innerHTML = `${city}, ${country}`;
 
 celsiusTemperature = response.data.main.temp;
 
