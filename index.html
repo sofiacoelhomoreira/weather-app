@@ -22,75 +22,72 @@
         <div class="container">
 
 
-
-            <div class="current-time-here">
-                <h1> </h1>
-                <span>All over the world it is <i class="fas fa-moon"></i> crescent moon </span>
-
-            </div>
-
-
             <div class="form-area">
                 <form id="search-form">
 
-                    <input type="search" placeholder="type a ciy.." id="search-text-input" class="type-city" />
-                    <input type="submit" value="Search" id="search-press" class="click-search" />
-                    <button class="btn" id="current-location-button">
-                        Current </button>
+                    <input type="search" placeholder="type a city.." id="search-text-input" class="type-city" />
+                    <button type="submit" id="search-press" class="click-search" Title="Search city">
+                        <img src="https://icons-for-free.com/iconfiles/png/512/svg+location+magnifying+glass+navigation+position+search+icon-1320185158232551016.png"
+                            alt="location-search-icon" width="40px">
+                    </button>
+                    <button id="current-location-button" class="here-search" Title="My location">
+
+                        <img src="https://img.icons8.com/windows/50/000000/search-location.png"
+                            alt="location-search-icon" width="40px">
+                    </button>
+
                 </form>
 
-                <h2 id="city">
-
-                </h2>
-
-
-                <div class="row">
-                    <div class="col-3">
-                        <div class="weather-icon">
-                            <img src="" id="weather-icon" class="float-left" />
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <span class="temperature" id="temp">
-
-                        </span>
-                        <span class="unit">
-                            <strong>°C</strong>
-                        </span>
-
-                    </div>
-                    <div class="col-6">
-                        <ul id="weather-list">
-
-                            <li>
-                                <span id="description"></span>
-                            </li>
-                            <li>
-                                humidity: <span id="humidity"></span>%
-                            </li>
-                            <li>
-                                wind: <span id="wind"></span>km/h
-                            </li>
-
-
-                        </ul>
-                    </div>
-
+                <div id="city">
                 </div>
+
             </div>
 
+            <div class="row">
+                <div class="col-3">
+                    <div class="weather-icon">
+                        <img src="" id="weather-icon" class="float-left" />
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <span class="temperature" id="temp">
+                    </span>
+                    <span class="unit">
+                        <strong>°C</strong>
+                    </span>
+                </div>
+
+                <div class="col-6">
+                    <ul id="weather-list">
+                        <li>
+                            <span id="description"></span>
+                        </li>
+                        <li>
+                            humidity: <span id="humidity"></span>%
+                        </li>
+                        <li>
+                            wind: <span id="wind"></span>km/h
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
 
             <div class="weather-forecast" id="forecast">
-
             </div>
+
+            <p> Last updated: <span id="update-time"> </span>(your local time) </p>
         </div>
     </div>
+
     <footer>
         <a href="https://github.com/sofiacoelhomoreira/weather-app">
             Open-source
         </a>
-        code by Sofia Coelho
+        code by Sofia Coelho Moreira
     </footer>
+
     <script src="src/script.js"></script>
 </body>
 

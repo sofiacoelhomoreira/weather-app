@@ -6,6 +6,7 @@ function formatDate(now){
     if (hours<10){
         hours=`0${hours}`;
     }
+
 let minutes = now.getMinutes();
       if (minutes<10){
         minutes=`0${minutes}`;
@@ -14,7 +15,6 @@ let minutes = now.getMinutes();
 
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let day = days[now.getDay()];
-
 
 return `${day}, ${hours}:${minutes}`
 }
@@ -30,7 +30,9 @@ return days[day];
 }
 
 
-let nowElement = document.querySelector("h1"); 
+
+
+let nowElement = document.querySelector("#update-time"); 
 let currentTime=new Date();
 nowElement.innerHTML=formatDate(currentTime);
 
@@ -74,6 +76,7 @@ document.querySelector("#temp").innerHTML = Math.round(celsiusTemperature);
 document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
 document.querySelector("#description").innerHTML = response.data.weather[0].description;
+
 let iconElement = document.querySelector("#weather-icon");
 iconElement.setAttribute("src",  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
@@ -106,6 +109,7 @@ function displayForecast(response){
     forecast.forEach(function (forecastDay, index) {
     forecastHTML = forecastHTML + ` 
     <div class="col-3">
+                    <div class="opacity-forecast">
                         <div class="weather-forecast-date">
                             ${formatDay(forecastDay.dt)}
                          </div>
@@ -121,6 +125,8 @@ function displayForecast(response){
                             </span>
                             °C
                         </div>
+
+                    </div>
      </div>               
 `;
     });
@@ -135,3 +141,35 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 searchCity("São Paulo");
 
+//mudando a cor em diferente período do dia
+
+if (hours<18){
+  document.body.style.backgroundColor="#4169E1";
+}else {
+document.body.style.backgroundColor="yellow";
+}
+  
+  //tentando pegar a fase da lua
+function getMoon(response){
+
+    let moonPhase = response.data.daily[0].moon_phase;
+   document.querySelector("#moon-phase").innerHTML = `${getMoonPhase(moonPhase)}`;
+    displayForecast(response.data.daily);
+    if (moonPhase === 0 || moonPhase === 1) {
+    return "New Moon";
+  } else if (0 < moonPhase< 0.25) {
+    return "Waxing Crescent";
+  } else if (moonPhase === 0.25) {
+    return "First Quarter";
+  } else if (0.25 < moonPhase < 0.5) {
+    return "Waxing Gibous";
+  } else if (moonPhase === 0.5) {
+    return "Full Moon";
+  } else if (0.5 < moonPhase < 0.75) {
+    return "Waning Gibous";
+  } else if (moonPhase === 0.75) {
+    return "Last Quarter";
+  } else {
+    return "Waning Crescent";
+  }
+}
