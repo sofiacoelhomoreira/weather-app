@@ -1,7 +1,6 @@
 
 
 function formatDate(now){
-    
     let hours = now.getHours();
     if (hours<10){
         hours=`0${hours}`;
@@ -27,14 +26,56 @@ let day = date.getDay();
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 return days[day];
+
 }
-
-
-
 
 let nowElement = document.querySelector("#update-time"); 
 let currentTime=new Date();
 nowElement.innerHTML=formatDate(currentTime);
+
+
+let h = currentTime.getHours();
+console.log(h);
+if (h>=8 && h<10){
+     document.body.style.backgroundColor= "linear-gradient(to right, #633cab 0%, #FAE55E 100%";
+} else if ( h>=10 && h < 14) { 
+document.body.style.background="linear-gradient(to right, #633cab 0%, #F39429 100%)";
+} else if ( h>=14 && h<18) { 
+document.body.style.background="linear-gradient(to right, #633cab 0%, #FAE55E 100%)";
+} else if (h>=18 && h<22){
+     document.body.style.background= "linear-gradient(to right, #633cab 0%, #8290FB 100%)";
+} else if ( h >=22){ 
+    document.body.style.background="linear-gradient(to right, #633cab 0%, #060A4E 100%)";
+} else if ( h == 00 && h < 04)
+{document.body.style.background="linear-gradient(to right, #633cab 0%, #060A4E 100%)";
+} else if ( h>=04 && h <08) { 
+document.body.style.background="linear-gradient(to right, #633cab 0%, #B3F3F8 100%)";
+}
+
+
+
+function getMoonPhase(moonPhase){
+    if (moonPhase === 0 || moonPhase === 1) {
+    return "New Moon 🌑";
+  } else if (0 < moonPhase< 0.25) {
+    return "Waxing Crescent Moon 🌒";
+  } else if (moonPhase === 0.25) {
+    return "First Quarter Moon🌓";
+  } else if (0.25 < moonPhase < 0.5) {
+    return "Waxing Gibous Moon🌔";
+  } else if (moonPhase === 0.5) {
+    return "Full Moon 🌕";
+  } else if (0.5 < moonPhase < 0.75) {
+    return "Waning Gibous Moon🌖";
+  } else if (moonPhase === 0.75) {
+    return "Last Quarter Moon🌗";
+  } else {
+    return "Waning Crescent Moon🌘";
+  }
+}
+
+
+
 
 function handleSubmit(event){
     event.preventDefault();
@@ -77,6 +118,7 @@ document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
 document.querySelector("#description").innerHTML = response.data.weather[0].description;
 
+
 let iconElement = document.querySelector("#weather-icon");
 iconElement.setAttribute("src",  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
@@ -101,8 +143,8 @@ function displayForecast(response){
 
     let forecast = response.data.daily;
     console.log(response.data.daily);
-    let forecastElement = document.querySelector("#forecast");
 
+    let forecastElement = document.querySelector("#forecast");
 
     let forecastHTML='<div class="row">';
     
@@ -135,41 +177,13 @@ function displayForecast(response){
 forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML= forecastHTML;
 
+
+let moonPhase= response.data.daily[0].moon_phase;
+   document.querySelector("#moon-phase").innerHTML = `${getMoonPhase(moonPhase)}`;
+   console.log(moonPhase);
 }
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
 searchCity("São Paulo");
-
-//mudando a cor em diferente período do dia
-
-if (hours<18){
-  document.body.style.backgroundColor="#4169E1";
-}else {
-document.body.style.backgroundColor="yellow";
-}
-  
-  //tentando pegar a fase da lua
-function getMoon(response){
-
-    let moonPhase = response.data.daily[0].moon_phase;
-   document.querySelector("#moon-phase").innerHTML = `${getMoonPhase(moonPhase)}`;
-    displayForecast(response.data.daily);
-    if (moonPhase === 0 || moonPhase === 1) {
-    return "New Moon";
-  } else if (0 < moonPhase< 0.25) {
-    return "Waxing Crescent";
-  } else if (moonPhase === 0.25) {
-    return "First Quarter";
-  } else if (0.25 < moonPhase < 0.5) {
-    return "Waxing Gibous";
-  } else if (moonPhase === 0.5) {
-    return "Full Moon";
-  } else if (0.5 < moonPhase < 0.75) {
-    return "Waning Gibous";
-  } else if (moonPhase === 0.75) {
-    return "Last Quarter";
-  } else {
-    return "Waning Crescent";
-  }
-}

@@ -1,6 +1,5 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to right, #ebe8c7 0%, #ecc71e 100%);
   color: #522d5b;
   padding: 30px;
   text-align: center;
@@ -12,6 +11,17 @@ body {
   max-width: 500px;
   margin: 12px;
   background: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #725e77;
+}
+
+h2 {
+  font-size: 16px;
+  color: #8b848d;
 }
 
 #city {
@@ -84,6 +94,7 @@ footer {
   font-size: 15px;
   margin-left: 15px;
   text-align: left;
+  color: #faf1bd;
 }
 
 a {
