@@ -36,7 +36,7 @@ nowElement.innerHTML=formatDate(currentTime);
 
 let h = currentTime.getHours();
 console.log(h);
-if (h>=8 && h<10){
+if (h>=08 && h<10){
      document.body.style.backgroundColor= "linear-gradient(to right, #633cab 0%, #FAE55E 100%";
 } else if ( h>=10 && h < 14) { 
 document.body.style.background="linear-gradient(to right, #633cab 0%, #F39429 100%)";
@@ -46,7 +46,9 @@ document.body.style.background="linear-gradient(to right, #633cab 0%, #FAE55E 10
      document.body.style.background= "linear-gradient(to right, #633cab 0%, #8290FB 100%)";
 } else if ( h >=22){ 
     document.body.style.background="linear-gradient(to right, #633cab 0%, #060A4E 100%)";
-} else if ( h == 00 && h < 04)
+    } else if ( h == 00){ 
+    document.body.style.background="linear-gradient(to right, #633cab 0%, #060A4E 100%)";
+} else if ( h>=01 && h <04)
 {document.body.style.background="linear-gradient(to right, #633cab 0%, #060A4E 100%)";
 } else if ( h>=04 && h <08) { 
 document.body.style.background="linear-gradient(to right, #633cab 0%, #B3F3F8 100%)";
