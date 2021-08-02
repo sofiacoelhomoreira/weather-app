@@ -15,7 +15,15 @@ let minutes = now.getMinutes();
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let day = days[now.getDay()];
 
-return `${day}, ${hours}:${minutes}`
+let months =["01","02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+let month = months[now.getMonth()];
+let today= now.getDate();
+ if (today<10){
+        today=`0${today}`;
+    }
+let year = now.getFullYear();
+
+return `${month}/${today}/${year} - ${day}, at ${hours}:${minutes}`
 }
 
 function formatDay(timestamp){
@@ -26,7 +34,6 @@ let day = date.getDay();
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 return days[day];
-
 }
 
 let nowElement = document.querySelector("#update-time"); 
@@ -37,7 +44,7 @@ nowElement.innerHTML=formatDate(currentTime);
 let h = currentTime.getHours();
 console.log(h);
 if (h>=08 && h<10){
-     document.body.style.backgroundColor= "linear-gradient(to right, #633cab 0%, #FAE55E 100%";
+     document.body.style.background= "linear-gradient(to right, #633cab 0%, #FAE55E 100%)";
 } else if ( h>=10 && h < 14) { 
 document.body.style.background="linear-gradient(to right, #633cab 0%, #F39429 100%)";
 } else if ( h>=14 && h<18) { 
@@ -53,7 +60,6 @@ document.body.style.background="linear-gradient(to right, #633cab 0%, #FAE55E 10
 } else if ( h>=04 && h <08) { 
 document.body.style.background="linear-gradient(to right, #633cab 0%, #B3F3F8 100%)";
 }
-
 
 
 function getMoonPhase(moonPhase){
@@ -75,8 +81,6 @@ function getMoonPhase(moonPhase){
     return "Waning Crescent Moon🌘";
   }
 }
-
-
 
 
 function handleSubmit(event){
@@ -188,4 +192,4 @@ let moonPhase= response.data.daily[0].moon_phase;
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCity("São Paulo");
+searchCity("London");

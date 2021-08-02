@@ -15,7 +15,7 @@ body {
 
 h1 {
   margin-top: 10px;
-  font-size: 24px;
+  font-size: 22px;
   color: #725e77;
   font-family: "Crete Round", serif;
 }
@@ -27,13 +27,6 @@ h2 {
   font-weight: bold;
 }
 
-#city {
-  text-align: left;
-  font-size: 29px;
-  margin-top: 10px;
-  margin-left: 10px;
-  font-family: "Crete Round", serif;
-}
 .form-area {
   padding: 15px;
 }
@@ -59,20 +52,16 @@ h2 {
   border: solid 2px rgb(245, 185, 73);
 }
 
-ul {
-  color: #522d5b;
-  font-family: "Yanone Kaffeesatz", sans-serif;
-  font-weight: bold;
-}
-
-li {
-  list-style: none;
-  font-size: 17px;
-  top: 5px;
+#city {
+  text-align: left;
+  font-size: 29px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-family: "Crete Round", serif;
 }
 
 .temperature {
-  font-size: 58px;
+  font-size: 50px;
   font-family: "Lemonada", cursive;
 }
 
@@ -91,26 +80,16 @@ li {
   color: #522d5b;
 }
 
-p {
-  text-align: center;
-  font-size: 15px;
-  color: white;
-  margin-top: 15px;
-   font-family: "Lemonada", cursive;
-  
-}
-
-footer {
-  font-size: 15px;
-  margin-left: 15px;
-  text-align: left;
-  color: #faf1bd;
+ul {
+  color: #522d5b;
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-weight: bold;
 }
 
-a {
-  text-decoration: none;
+li {
+  list-style: none;
+  font-size: 17px;
+  top: 5px;
 }
 
 .weather-forecast {
@@ -128,14 +107,38 @@ a {
   border: solid 1px rgb(238, 206, 147);
   border-radius: 50px;
   margin-top: 10px;
-   font-family: "Lemonada", cursive;
-   font-weight:lighter;
+  font-family: "Lemonada", cursive;
+  font-weight: lighter;
 }
 
 .weather-forecast-temp {
   font-size: 13px;
-   font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
   font-weight: bold;
   color: #4a2753;
 }
+
+p {
+  text-align: center;
+  font-size: 17px;
+  color: white;
+  margin-top: 15px;
+  font-family: "Lemonada", cursive;
+}
+
+footer {
+  font-size: 17px;
+  margin-left: 15px;
+  text-align: left;
+  color: #faf1bd;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+  color: white;
 }
